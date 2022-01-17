@@ -1,0 +1,152 @@
+.work {
+    margin: 100px 0px;
+    .work-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        color: $white;
+
+        h1 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: .75px $white;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .experience__details {
+            display: flex;
+            position: relative;
+
+            nav {
+                width: 20%;
+                min-width: 250px;
+                margin-right: 2rem;
+
+                .experience-button-container {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: .5rem;
+                    display: none;
+                }
+
+                ul {
+                    padding: 0px;
+                    list-style: none;
+
+                    .experience-list-item {
+                        transition: .3s;
+                        background: none;
+                        border-right: 3px solid $primary;
+                        border-top-left-radius: $border-radius;
+                        border-bottom-left-radius: $border-radius;
+                        background: linear-gradient(to left, $primary 50%,  transparent 50%) left;
+                        background-size: 200%;
+                        cursor: pointer;
+                        
+                        &.active {
+                            background-position: right;
+                        }
+                        
+                        button {
+                            padding: .5rem .75rem;
+                            color: $white;
+                            border: none;
+                            outline: none;
+                            background: transparent;
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+
+            .jobs-container {
+                position: relative;
+                top: 30px;
+                transition: .5s;
+                opacity: 0;
+
+                &.visible {
+                    top: 0px;
+                    opacity: 1;
+                }
+
+                .job-container {
+                    position: absolute;
+                    opacity: 0;
+                    visibility: hidden;
+                    background: $background;
+            padding: 1.5rem;
+            border-radius: $border-radius;
+            border: 1px solid $white;
+
+                    &.bumper {
+                        visibility: hidden;
+                        position: relative !important;
+                        top: 0;
+                    }
+
+                    &.active {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+
+                    .experience {
+                        font-size: 2rem;
+                        font-weight: bold;
+                        margin-bottom: .5remrem;
+                        display: flex;
+
+                        .highlight-container {
+                            display: flex;
+                            margin-left: 5px;
+                            color: $primary !important;
+                            position: relative;
+                            cursor: pointer;
+
+                            .company {
+                                a {
+                                    margin-left: 3px;
+                                    color: $primary !important;
+                                    position: relative;
+                                    cursor: pointer;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+
+                    .date {
+                        opacity: .75;
+                        font-size: 1.5rem;
+                    }
+
+                    .description {
+                        margin-top: 1rem;
+                        font-size: 1.5rem;
+
+                        ul {
+                            margin-top: .5rem;
+                            margin-bottom: 1rem;
+
+                            li {
+                                list-style: inside;
+                                color: $primary;
+                                margin-bottom: .5rem;
+
+                                span {
+                                    color: $white;
+                                    font-size: 1.5rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

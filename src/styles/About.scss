@@ -1,0 +1,53 @@
+.about {
+    margin: 100px 0px;
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        color: $white;
+
+        h1 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: .75px $white;
+            -webkit-text-fill-color:transparent;
+        }
+        .about-text {
+            background: $background;
+            padding: 1.5rem;
+            border-radius: $border-radius;
+            border: 1px solid $white;
+    
+            p {
+                font-size: 1.5rem;
+            }
+    
+            .list-intro {
+                margin-bottom: .5rem;
+            }
+    
+            ul {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(250px, 200px));
+                gap: 0px 10px;
+    
+                li {
+                    color: $primary;
+                    span {
+                        color: $white;
+                        font-size: 1.5rem;
+    
+                        span {
+                            font-size: 1rem;
+                            opacity: .75;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,112 @@
+.toolkit {
+    margin: 100px 0px;
+    .toolkit-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        color: $white;
+        padding: 0rem 1rem;
+
+        h1 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: .75px $white;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .icon-row {
+            background: $background;
+            padding: 1.5rem;
+            border-radius: $border-radius;
+            border: 1px solid $white;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            .icon {
+                width: 21%;
+                text-align: center;
+                padding: 50px 0rem;
+                margin-bottom: 0rem;
+
+                img {
+                    object-fit: contain;
+                    height: 75px;
+                    width: 75px;
+                    filter: grayscale(100%) brightness(150%);
+                }
+            }
+
+            .html,
+            .css {
+                filter: grayscale(100%) brightness(175%);
+            }
+
+            .sass {
+                filter: grayscale(100%) brightness(150%);
+            }
+
+            .react {
+                filter: grayscale(100%) brightness(175%);
+            }
+
+            .pg {
+                filter: grayscale(100%) brightness(125%);
+            }
+
+            .aws {
+                filter: grayscale(100%) brightness(100%);
+                transform: scaleX(-1);
+            }
+
+            .heroku {
+                filter: grayscale(100%) brightness(115%);
+            }
+
+            .github {
+                filter: grayscale(100%) brightness(750%);
+            }
+
+            .git {
+                filter: grayscale(100%) brightness(150%);
+            }
+
+            .figma {
+                filter: grayscale(100%) brightness(125%);
+            }
+
+            .vscode {
+                filter: grayscale(100%) brightness(125%);
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .toolkit {
+        .toolkit-content {
+            .icon-row {
+                .icon {
+                    width: 26%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .toolkit {
+        .toolkit-content {
+            .icon-row {
+                .icon {
+                    width: 35%;
+                }
+            }
+        }
+    }
+}
