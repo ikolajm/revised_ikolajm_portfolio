@@ -1,0 +1,60 @@
+body {
+    &.overflow {
+        overflow: hidden;
+    }
+}
+
+.mobile-overlay {
+    background: $secondary;
+    position: fixed;
+    top: -35%;
+    left: -100%;
+    width: 00%;
+    height: 200%;
+    z-index: 5;
+    transition: 0.5s;
+    transform: skew(335deg);
+
+    &.visible {
+        width: 300%;
+    }
+}
+
+.toggle-container {
+    &.visible {
+        opacity: .75 !important;
+
+        &:hover {
+            // opacity: 1 !important;
+        }
+    }
+}
+
+#mobile-menu {
+    &.visible {
+        display: flex;
+    }
+
+    ul {
+        &.visible {
+            opacity: 1 !important;
+        }
+    }
+}
+
+.hamburger,
+.close {
+    &.visible {
+        opacity: .75 !important; 
+
+        &:hover {
+            opacity: 1 !important;
+        }
+    }
+}
+
+.splash-content {
+    &.fadeout {
+        opacity: 0;
+    }
+}

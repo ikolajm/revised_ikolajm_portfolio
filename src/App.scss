@@ -1,7 +1,13 @@
 $background: #202028;
+$background-l: lighten(#202028, 10%);
 $white: #EEEEEE;
 $primary: #BA68C8;
+$primary-d: darken(#BA68C8, 10%);
+$secondary: #6D6DD6;
+$secondary-d: darken(#6D6DD6, 10%);
 $border-radius:  5px;
+// $splash-gradient: linear-gradient(90deg, #C72BD3, #A638CE, #c244c9, #A638CE, #C72BD3, #A638CE);
+$splash-gradient: linear-gradient(90deg, #BA68C8, #a23ab4, #d067e2, #a23ab4, #BA68C8, #BA68C8);
 
 .app {
   font-family: 'Oswald', sans-serif;
@@ -48,3 +54,4 @@ body, main {
 @import "./styles/Toolkit.scss";
 @import "./styles/Repos.scss";
 @import "./styles/Footer.scss";
+@import "./styles/Interactions.scss";

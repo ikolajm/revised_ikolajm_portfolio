@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+import { shiftJob, swapExperience, externalWorkObserver } from "../functions/WorkJS";
+
 export default () => {
+    useEffect(() => {
+        externalWorkObserver();
+    })
     return (
         <section id="work" className="work">
             <div className="work-content">
@@ -7,36 +13,41 @@ export default () => {
                 <div className="experience__details">
                     <nav>
                         <div className="experience-button-container">
-                            <button type="button" id="left-btn" disabled>
+                            <button onClick={() => shiftJob('left')} type="button" id="left-btn">
                                 <i className="fas fa-long-arrow-alt-left"></i>
                             </button>
                             <span id="position-indicator">
                                 1/3
                             </span>
-                            <button type="button" id="right-btn">
+                            <button onClick={() => shiftJob('right')} type="button" id="right-btn">
                                 <i className="fas fa-long-arrow-alt-right"></i>
                             </button>
                         </div>
                         <ul>
-                            <li id="efa-li" className="experience-list-item active">
+                            <li id="efa-li" onClick={() => swapExperience('efa')} className="experience-list-item">
                                 <button type="button">
                                     Eleven Fifty Academy
                                 </button>
                             </li>
-                            <li id="propelup-li" className="experience-list-item">
+                            <li id="propelup-li" onClick={() => swapExperience('propelup')} className="experience-list-item">
                                 <button type="button">
                                     PropelUp
                                 </button>
                             </li>
-                            <li id="freelance-li" className="experience-list-item">
+                            <li id="freelance-li" onClick={() => swapExperience('freelance')} className="experience-list-item">
                                 <button type="button">
                                     Freelance
+                                </button>
+                            </li>
+                            <li id="spectrum-li" onClick={() => swapExperience('spectrum')} className="experience-list-item">
+                                <button type="button">
+                                    Spectrum Net Designs
                                 </button>
                             </li>
                         </ul>
                     </nav>
                     <div className="jobs-container visible">
-                        <article id="efa-desc" className="job-container active">
+                        <article id="efa-desc" className="job-container">
                             <h3 className="experience">
                                 Student 
                                 <div className="highlight-container">
@@ -52,7 +63,7 @@ export default () => {
                                 Jan. 2019 - Apr. 2019
                             </span>
                             <div className="description">
-                                <p>Eleven Fifty Academy is a nonprofit dedicated to bridging the tech talent gap in Indiana. Their aim is to impact the lives of career changers, professionals looking to skill-up, and those just starting to launch their career. When I attended, I was a part of the Javascript cohort where we were tasked with building full stack web applications using technologies such as React, Angular, Node, and PostgreSQL.</p>
+                                <p>Eleven Fifty Academy is a nonprofit dedicated to bridging the tech talent gap in Indiana. Their aim is to impact the lives of career changers, professionals looking to skill-up, and those just starting to launch their career. When I attended, I was a part of the JavaScript cohort where we were tasked with building full stack web applications using technologies such as React, Angular, Node, and PostgreSQL.</p>
                                 <ul>
                                     <li>
                                         <span>500+ hours of supervised web development experience</span>
@@ -61,7 +72,7 @@ export default () => {
                                         <span>Built various full stack web applications as a part of 1-4 person teams</span>
                                     </li>
                                     <li>
-                                        <span>Awarded the teamwork award by class vote for my willingness to help my peers</span>
+                                        <span>Presented with the "Teamwork Award" by class vote for my willingness to help my peers</span>
                                     </li>
                                 </ul>
                             </div>
@@ -103,14 +114,14 @@ export default () => {
                                 Freelance Web Developer 
                             </h3>
                             <span className="date">
-                                (March 2021 - Present)
+                                (March 2021 - January 2022)
                             </span>
                             <div className="description">
-                                <p>After my time at PropelUp, I set out to improve my design skills, working in Figma, Inkscape, and Gimp. I also studied to see where my UX/UI knowledge lacked and began finding ways to incorporate those principles into my layouts. This led me to some freelance opportunities where I was able to work on projects that had me participating in both design and development discussions.</p>
+                                <p>After my time at PropelUp, I set out to improve my design skills, working in Figma, Inkscape, and Gimp. Over the spring and summer, I was able to have a couple of opportunities to work as a contractor. Here, I was participating in discussions for designs transferring to the web, as well as being responsible for the deployment of various development environments and production websites.</p>
                                 <ul>
                                     <li>
                                         <span>
-                                            Responsible for the hosting and deployment of production websites and development environments with technologies like Netlify and cPanel
+                                            Responsible for the hosting and deployment of production websites and development environments with technologies such as Netlify and cPanel
                                         </span>
                                     </li>
                                     <li>
@@ -118,6 +129,38 @@ export default () => {
                                     </li>
                                     <li>
                                         <span>Created wireframes, mockups, and prototypes for client walkthroughs using Figma</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+                        <article id="spectrum-desc" className="job-container">
+                            <h3 className="experience">
+                                Web Developer
+                                <div className="highlight-container">
+                                    <span className="at">@</span>
+                                    <span className="company">
+                                        <a href="https://www.spectrumnetdesigns.com/" target="_blank" tabIndex={0}>
+                                            Spectrum Net Designs
+                                        </a>
+                                    </span>
+                                </div>
+                            </h3>
+                            <span className="date">
+                                (February 2022 - Present)
+                            </span>
+                            <div className="description">
+                                <p>Spectrum Net Designs contains <a href="https://www.auctioneersoftware.com/custom-software-development/" target="_blank" tabIndex={0}>Auctioneer Software</a> - a web application offering businesses a platform that can help you bring your auctions to the web for everyone to take part in. Clients are able to have standard timed auctions with item lots of different categories. 99% of my time is spent with A.S. assisting with the maintenance of the code repositories</p>
+                                <ul>
+                                    <li>
+                                        <span>
+                                            Part of a development team maintaining a codebase consisting of TypeScript, GraphQL, and SCSS
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>Collaborated with support staff and team leads to get issues fixed and pushed to clients</span>
+                                    </li>
+                                    <li>
+                                        <span>Wrote both datatable updates and unit tests for solutions using SQL queries</span>
                                     </li>
                                 </ul>
                             </div>

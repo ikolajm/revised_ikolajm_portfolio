@@ -1,4 +1,12 @@
+import { useEffect } from "react"
+import { animateSplashContent } from "../functions/Animations"
+import { splashNavClick, splashContentResizeFix } from "../functions/Interactions"
+
 export default () => {
+    useEffect(() => {
+        animateSplashContent();
+        splashContentResizeFix();
+    });
     return (
         <section id="splash" className="splash">
             <div className="splash-content">
@@ -16,7 +24,7 @@ export default () => {
                         <div className="splash-text-content">
                             <h1>Jacob Ikola</h1>
                             <h2>Full stack web developer</h2>
-                            <button>Continue reading</button>
+                            <button onClick={() => splashNavClick()}>Continue reading</button>
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,13 @@
 .navbar {
+    opacity: 0 !important;
     height: 65px;
     z-index: 3 !important;
-    top: 0;
+    top: -75px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
     padding: 1rem 0rem;
+    transition: 1.5s;
     ul {
         padding: 0px;
         margin: 0px;
@@ -15,15 +17,155 @@
         justify-content: flex-end;
 
         li {
-            margin-right: 1rem;
             text-align: center;
 
             a {
-                font-size: 1.25rem;
+                opacity: 1;
+                position: relative;
                 color: $white;
                 text-decoration: none;
+                transition: .5s ease;
+                display: block;
+                text-decoration: none;
+                font-size: 1.25rem;
+                margin-right: 1rem;
+                padding: 0rem;
 
+                &:hover,
+                &:focus,
+                &:focus-within {
+                    color: $primary !important;
+                    border: none;
+                    outline: none;
+                }
 
+                &:before{
+                    content: '';
+                    position: absolute;
+                    bottom: -8px;
+                    right: 0;
+                    width: 0;
+                    height: 3px;
+                    background-color: $primary;
+                    transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                }
+
+                &:hover:before,
+                &:focus:before,
+                &:focus-within:before {
+                    left: 0;
+                    right: auto;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .mobile {
+        color: $white;
+        font-size: 1.5rem;
+        // text-align: center;
+        display: none;
+        position: relative;
+        top: 0rem;
+        right: 0rem;
+        transition: .3s;
+        z-index: 6;
+        flex-direction: column;
+        // align-items: flex-end;
+        width: 100%;
+
+        .toggle-container {
+            cursor: pointer;
+            opacity: 0;
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            // position: absolute;
+            text-align: center;
+            // top: 1rem;
+            // right: 1rem;
+            font-size: 2rem;
+
+            &:hover {
+                // opacity: 1 !important;
+            }
+
+            .nav-icon {
+                position: relative;
+                width: 40px;
+
+                .hamburger {
+                    position: absolute;
+                    top: 8.25px;
+                    left: 16%;
+                }
+
+                .hamburger,
+                .close {
+                    transition: .3s;
+                    opacity: 0;
+                }
+            }
+
+            span {
+                position: relative;
+                top: -5px;
+                font-size: 1.15rem;
+            }
+        }
+
+        #mobile-menu {
+            display: none;
+            transition: .3s;
+            &.visible {
+                display: flex;
+            }
+
+            ul {
+                opacity: 0;
+                flex-direction: column;
+                align-items: flex-start;
+                transition: .3s;
+
+                li {
+                    a {
+                        font-size: 2rem;
+                        margin-top: .25rem;
+
+                        &:before {
+                            bottom: 0px !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .toggle-container,
+        #mobile-menu {
+            position: relative;
+            z-index: 6;
+        }
+
+    }
+
+    &.animated {
+        opacity: 1 !important;
+        top: 0px !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navbar {
+        #large-links {
+            display: none;
+        }
+        .mobile {
+            display: flex;
+
+            .toggle-container {
+                display: flex;
             }
         }
     }

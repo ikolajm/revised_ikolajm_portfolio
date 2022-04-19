@@ -6,15 +6,20 @@
         justify-content: center;
         height: 100vh;
         margin-top: -65px;
+        transition: .3s;
 
         .row {
             width: 100%;
             justify-content: space-between;
             .splash-image-container {
+                position: relative;
                 height: 100vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                top: 100px;
+                opacity: 0;
+                transition: 1.5s;
                 .splash-image {
                     background-image: url("../assets/code.png");
                     width: 400px;
@@ -30,13 +35,23 @@
                         margin: 0;
                     }
                 }
+                &.animated-l {
+                    opacity: 1;
+                    top: 0px;
+                }
             }
+
+
             .splash-text {
                 height: 100vh;
                 padding: 1rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                opacity: 0;
+                position: relative;
+                left: 100px;
+                transition: 1.5s;
     
                 .splash-text-content {
                     color: $white;
@@ -70,6 +85,167 @@
                         outline: none;
                         color: $white;
                         font-size: 1.15rem;
+
+                        // Gradient details
+                        position: relative;
+                        color: $white;
+                        background-image: linear-gradient(90deg, #BA68C8, #B077BA, #ab78b4, #6D6DD6, #BA68C8, #B077BA);
+                        background-size: 400%;
+                        background-position: 0% 0%;
+                        
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: -2px;
+                            top: -2px;
+                            right: -2px;
+                            bottom: -2px;
+                            border-radius: 26px;
+                            // 
+                            // background-image: linear-gradient(90deg, #0065ff, #6942ef, #6554c0, #008cff, #0065ff, #6942ef);
+                            background-image: linear-gradient(90deg, #BA68C8, #B077BA, #ab78b4, #6D6DD6, #BA68C8, #B077BA);
+                            background-size: 500%;
+                            background-position: 0% 0%;
+                            filter: blur(10px);
+                            opacity: 0;
+                            z-index: -1;
+                            transition: opacity 0.2s;
+                        }
+
+                        &:hover,
+                        &:focus,
+                        &:focus-within {
+                            animation: gradientRotate 2s infinite;
+                        }
+
+                        &:hover::before,
+                        &:focus::before,
+                        &:focus-within::before {
+                            opacity: 1 !important;
+                            animation: gradientRotate 2s infinite;
+                        }
+                    }
+
+                    @keyframes gradientRotate {
+                        0% {
+                          background-position: 0% 0%;
+                        }
+                        100% {
+                          background-position: 100% 100%;
+                        }
+                    }
+                }
+
+                &.animated-l {
+                    opacity: 1;
+                    left: 0px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .splash  {
+        .splash-content {
+            .splash-image-container {
+                .splash-image  {
+                    width: 300px !important;
+                    height: 300px !important;
+                }
+            }
+
+            .splash-text {
+                .splash-text-content {
+                    h1 {
+                        font-size: 2rem !important;
+                    }
+
+                    h2 {
+                        font-size: 1.5rem !important;
+                    }
+
+                    button {
+                        font-size: 1rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .splash  {
+        .splash-content {
+            .splash-image-container {
+                height: 100% !important;
+                justify-content: flex-start !important;
+                opacity: 0 !important;
+                left: 100px;
+                top: 0px !important;
+                .splash-image  {
+                    width: 175px !important;
+                    height: 175px !important;
+                }
+
+                &.animated-s {
+                    opacity: 1 !important;
+                    top: 0px;
+                    left: 0px;
+                }
+            }
+
+            .splash-text {
+                height: 100% !important;
+                justify-content: flex-start !important;
+                opacity: 0;
+                left: 100px;
+                top: 0px !important;
+
+                .splash-text-content {
+                    h1 {
+                        font-size: 2.25rem !important;
+                    }
+
+                    h2 {
+                        font-size: 1.75rem !important;
+                    }
+
+                    button {
+                        font-size: 1.25rem !important;
+                    }
+                }
+
+                &.animated-s {
+                    opacity: 1 !important;
+                    top: 0px;
+                    left: 0px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .splash  {
+        .splash-content {
+            .splash-image-container {
+                .splash-image  {
+                }
+            }
+
+            .splash-text {
+                .splash-text-content {
+                    h1 {
+                        font-size: 2rem !important;
+                    }
+
+                    h2 {
+                        font-size: 1.5rem !important;
+                    }
+
+                    button {
+                        font-size: 1.25rem !important;
                     }
                 }
             }
